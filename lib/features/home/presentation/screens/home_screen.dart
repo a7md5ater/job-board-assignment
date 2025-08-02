@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:job_hunter/app/injector.dart' show di;
 import 'package:job_hunter/core/user_cubit.dart';
 
 import '../../../../config/router/routes.dart';
@@ -9,6 +10,7 @@ import '../../../activity/presentation/screens/activity_screen.dart';
 import '../../../auth/data/models/user_model.dart';
 import '../../../job_seekers/presentation/screens/job_seekers_screen.dart';
 import '../../../settings/presentation/screens/settings_screen.dart';
+import '../../../submitted_jobs/cubit/submitted_jobs_cubit.dart';
 import '../../../submitted_jobs/presentation/screens/submitted_jobs_screen.dart';
 import '../../cubit/home_cubit.dart';
 import '../../nav_bar_item.dart';
@@ -45,7 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
         NavBarItem(
           label: 'All Submitted Jobs',
           icon: AppIcons.document,
-          view: const SubmittedJobsScreen(),
+          view: BlocProvider(
+            create: (context) => di<SubmittedJobsCubit>(),
+            child: const SubmittedJobsScreen(),
+          ),
         ),
       NavBarItem(
         label: 'Settings',
