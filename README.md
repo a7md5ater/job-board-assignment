@@ -8,7 +8,7 @@ This is the **mobile application** for the Job Board project, developed using **
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/job-board-assignment.git
+   git clone https://github.com/a7md5ater/job-board-assignment.git
    cd job-board-assignment/mobile
    ```
 
